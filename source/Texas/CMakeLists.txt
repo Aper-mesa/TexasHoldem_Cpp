@@ -44,6 +44,12 @@ set(CMAKE_MODULE_PATH
 include(AXGameEngineOptions)
 include(AXGameEngineSetup)
 
+## MODIFICATION START ##
+# Add ENet as a subdirectory.
+# Make sure you have placed the enet source code in the "external/enet" folder.
+add_subdirectory(external/enet)
+## MODIFICATION END ##
+
 # The common cross-platforms source files and header files
 file(GLOB_RECURSE GAME_HEADER
   Source/*.h Source/*.hpp
@@ -81,6 +87,11 @@ include(AXGameTargetSetup)
 ax_setup_app_config(${APP_NAME})
 
 # Add any libraries you need to link to the project after this point
+## MODIFICATION START ##
+# Link the enet library to your game application target.
+target_link_libraries(${APP_NAME} PRIVATE enet)
+## MODIFICATION END ##
+
 
 # Default Platform-specific setup
 include(AXGamePlatformSetup)
