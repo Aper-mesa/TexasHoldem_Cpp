@@ -1,14 +1,7 @@
 set(target_name "zlib")
 project(${target_name})
 
-# 注释掉下载命令，我们不再需要它
-# _1kfetch_dist(${target_name})
-
-# 手动设置我们本地的库路径。
-# CMAKE_CURRENT_SOURCE_DIR 指的就是当前这个 CMakeLists.txt 所在的目录
-set(zlib_INC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include")
-set(zlib_LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib")
-
+_1kfetch_dist(${target_name})
 
 if(WINDOWS)
   add_library(${target_name} SHARED IMPORTED GLOBAL)

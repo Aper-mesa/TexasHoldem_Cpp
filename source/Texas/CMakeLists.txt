@@ -89,7 +89,7 @@ ax_setup_app_config(${APP_NAME})
 # Add any libraries you need to link to the project after this point
 ## MODIFICATION START ##
 # Link the enet library to your game application target.
-target_link_libraries(${APP_NAME} PRIVATE enet)
+target_link_libraries(${APP_NAME} enet)
 ## MODIFICATION END ##
 
 
